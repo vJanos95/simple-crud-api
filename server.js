@@ -25,3 +25,13 @@ app.post('/additem', function (request, response) {
         }
     });
 });
+
+app.get('/getitems', function (request, response) {
+    Item.find({}, function (error, items) {
+        if (error) {
+            response.status(500).send('Failed to get items from the database');
+        } else {
+            response.send(items);
+        }
+    });
+});
