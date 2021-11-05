@@ -36,12 +36,17 @@ app.get('/items/getitems', function (request, response) {
     });
 });
 
-app.delete('/items/removeitem/:itemID',function(request,response){
-        Item.deleteOne({_id:request.params.itemID},function(error,items){
-                if(error){
-                        response.status(500).send('Failed to delete the given item');
-                }else{
-                        response.send(items);
-                }
-        })
+app.delete('/items/removeitem/:itemID', function (request, response) {
+    Item.deleteOne(
+        { _id: request.params.itemID },
+        function (error, deletedItem) {
+            if (error) {
+                response.status(500).send('Failed to delete the given item');
+            } else {
+                response.send(
+                    `Item with the id of "${request.params.itemID}" was deleted from the database`
+                );
+            }
+        }
+    );
 });
