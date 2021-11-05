@@ -44,7 +44,7 @@ app.delete('/items/removeitem/:itemID', function (request, response) {
                 response.status(500).send('Failed to delete the given item');
             } else {
                 response.send(
-                    `Item with the id of "${request.params.itemID}" was deleted from the database`
+                    `Item with the id of "${request.params.itemID}" was deleted from the database!`
                 );
             }
         }
