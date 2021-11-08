@@ -6,3 +6,5 @@ Modules used are:
 
 Expressjs
 Mongoose for MongoDB
+
+I used Postman to test out the different requests!
